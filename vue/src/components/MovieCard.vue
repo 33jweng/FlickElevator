@@ -138,6 +138,8 @@ export default {
   font-family: 'Unbounded';
 }
 
+
+
 @media only screen and (max-width: 900px) {
    .movie-card {
   border: 1px transparent;
