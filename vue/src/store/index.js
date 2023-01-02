@@ -124,6 +124,10 @@ export default new Vuex.Store({
       
     },
     SET_LIKED_MOVIES(state) {
+      state.likedMoviesArr = [];
+
+      if (!state.account.likedMovies) return;
+
       const likedMovieIds = state.account.likedMovies.split(',');
       const tempArray = [];
 
@@ -135,6 +139,10 @@ export default new Vuex.Store({
       });
     },
     SET_DISLIKED_MOVIES(state) {
+      state.dislikedMoviesArr = [];
+      
+      if (!state.account.dislikedMovies) return;
+
       const dislikedMovieIds = state.account.dislikedMovies.split(',');
       const tempArray = [];
 
@@ -146,6 +154,10 @@ export default new Vuex.Store({
       });
     },
     SET_FAVORITES(state) {
+      state.favoriteMoviesArr = [];
+      
+      if (!state.account.favoriteMovies) return;
+
       const favoriteMovieIds = state.account.favoriteMovies.split(',');
       const tempArray = [];
 
@@ -158,6 +170,8 @@ export default new Vuex.Store({
     },
 
     SET_RANDOM_MOVIE(state) {
+      if (state.account.preferredGenres.length === 0) return;
+      
       const dislikedMovieIds = state.account.dislikedMovies.split(',');
       let isValid = true;
       let index = 0;
